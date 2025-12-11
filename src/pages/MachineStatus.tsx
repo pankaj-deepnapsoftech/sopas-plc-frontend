@@ -50,8 +50,9 @@ const MachineStatus: React.FC = () => {
   const [refreshInterval, setRefreshInterval] = useState<number>(30); // seconds 
 
   // Legacy backend URL kept for reference; PLC data now comes from dedicated API
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8096/api/';
-  const plcApiUrl = 'https://krishnalabels.rtpas.in/api/dashboard/plc-machine-data';
+  // const plcApiUrl = 'https://krishnalabels.rtpas.in/api/dashboard/plc-machine-data';
+  const plcApiUrl = `${process.env.REACT_APP_BACKEND_URL}dashboard/plc/machine/data`;
+
 
   const fetchMachineData = useCallback(async (deviceId: string = 'PC-001') => {
     setIsLoading(true);
