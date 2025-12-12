@@ -5,7 +5,7 @@ import io, { Socket } from 'socket.io-client'; // CHANGE 1: Imported socket.io-c
 
 const Sensors: React.FC = () => {
   // Backend base URL from env (CRA), fallback to localhost
-  const BACKEND_BASE_URL = (process.env.REACT_APP_BACKEND_URL || 'http://localhost:8085/api/') as string;
+  const BACKEND_BASE_URL = (process.env.REACT_APP_BACKEND_URL || 'http://localhost:9023/api/') as string;
   const BASE_URL = BACKEND_BASE_URL.endsWith('/') ? BACKEND_BASE_URL : `${BACKEND_BASE_URL}/`;
   const DEVICE_GET_URL = `${BASE_URL}devicedata/get-device-data`;
   const DEVICE_POST_URL = `${BASE_URL}devicedata/dashboardtodb`;
@@ -140,7 +140,7 @@ const Sensors: React.FC = () => {
     // Initialize Socket.IO client
     const socketUrl =
       (process.env.REACT_APP_SOCKET_URL || (process.env.REACT_APP_BACKEND_URL || '')
-        .replace(/\/api\/?$/, '')) || 'http://localhost:8085';
+        .replace(/\/api\/?$/, '')) || 'http://localhost:9023';
     socketRef.current = io(socketUrl, {
       withCredentials: true,
       extraHeaders: {

@@ -292,6 +292,7 @@ const MachineStatus: React.FC = () => {
               w="100px"
               isDisabled={!autoRefresh}
             >
+               <option value={3}>3s</option>
               <option value={10}>10s</option>
               <option value={30}>30s</option>
               <option value={60}>1m</option>
